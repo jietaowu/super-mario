@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{394CCAF7-6EBC-6E0D-E2A0-AA8388813C1B}|">
+  <MonoDevelop.Ide.ItemProperties.Mario_220Dream_220Killer PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="107" Column="30" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
