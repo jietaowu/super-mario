@@ -11,13 +11,26 @@ public class DestoryBox : MonoBehaviour
 
     public AudioSource crateHit;
 
+    public PlayerController thePlayer;
+
+
+    public LevelManager theLevelManager;
+
+    public int scoreValue;
+
 
     // Use this for initialization
     void Start()
     {
 
 
+
         playerRigidbody = GetComponent<Rigidbody2D>();
+
+        thePlayer = FindObjectOfType<PlayerController>(); //find the player script
+
+        theLevelManager = FindObjectOfType<LevelManager>();
+
     }
 
     // Update is called once per frame
@@ -42,6 +55,7 @@ public class DestoryBox : MonoBehaviour
         {
             crateHit.Play();
             other.gameObject.SetActive(false);
+            theLevelManager.AddScores(scoreValue);
 
 
         }
@@ -50,24 +64,26 @@ public class DestoryBox : MonoBehaviour
         {
             crateHit.Play();
             other.gameObject.SetActive(false);
+            theLevelManager.AddScores(scoreValue);
 
 
 
-            }
+        }
 
-            //if (other.tag == "boom")
-            //{
-            //    crateHit.Play();
-            //    other.gameObject.SetActive(false);
-            //    wall.gameObject.SetActive(false);
+        //if (other.tag == "boom")
+        //{
+        //    crateHit.Play();
+        //    other.gameObject.SetActive(false);
+        //    wall.gameObject.SetActive(false);
 
-            //}
+        //}
 
-            if (other.tag == "mushroom")
-            {
+        if (other.tag == "mushroom")
+        {
 
-                other.gameObject.SetActive(false);
-            }
+            other.gameObject.SetActive(false);
+
+        }
 
 
 
@@ -76,6 +92,7 @@ public class DestoryBox : MonoBehaviour
 
 
     }
+
 
 
 }

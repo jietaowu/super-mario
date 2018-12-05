@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 
     public Rigidbody2D myRigidbody; //主角
 
+    public LevelManager theLevelManager;
+
     public float activeMoveSpeed; //活跃移动速度
 
     public float jumpSpeed; //高度
@@ -17,7 +19,17 @@ public class PlayerController : MonoBehaviour
 
     public float scale = 10.0f;
 
-    float timeLeft = 15.0f;
+
+    public Transform groundCheck;
+
+    public float groundCheckRadius;
+
+    public LayerMask whatIsGround;
+
+    public bool isGrounded;
+
+    public GameObject GameOverScreen;
+
 
 
     void Start()
@@ -27,13 +39,18 @@ public class PlayerController : MonoBehaviour
 
         thePlayer = GetComponent<Transform>();
 
-       
+        theLevelManager = FindObjectOfType<LevelManager>();
+
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, whatIsGround);
 
 
         if (Input.GetAxisRaw("Horizontal") > 0f)
@@ -42,12 +59,12 @@ public class PlayerController : MonoBehaviour
 
             if (larger)
             {
-                transform.localScale = new Vector3(2f, 2f, 2f); //改变角色面对的方向（右边）
+                transform.localScale = new Vector3(5f, 5f, 5f); //改变角色面对的方向（右边）
             }
             else
             {
 
-                transform.localScale = new Vector3(1f, 1f, 1f); //改变角色面对的方向（右边）
+                transform.localScale = new Vector3(2.5f, 2.5f, 2.5f); //改变角色面对的方向（右边）
 
             }
 
@@ -58,14 +75,14 @@ public class PlayerController : MonoBehaviour
             if (larger)
             {
                 myRigidbody.velocity = new Vector3(-activeMoveSpeed, myRigidbody.velocity.y, 0f);
-                transform.localScale = new Vector3(-2f, 2f, 2f); //改变角色面对的方向（左边）
+                transform.localScale = new Vector3(-5f, 5f, 5f); //改变角色面对的方向（左边）
             }
             else
             {
 
 
                 myRigidbody.velocity = new Vector3(-activeMoveSpeed, myRigidbody.velocity.y, 0f);
-                transform.localScale = new Vector3(-1f, 1f, 1f); //改变角色面对的方向（左边）
+                transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f); //改变角色面对的方向（左边）
             }
 
         }
@@ -74,7 +91,7 @@ public class PlayerController : MonoBehaviour
             myRigidbody.velocity = new Vector3(0f, myRigidbody.velocity.y, 0f);
         }
 
-        if (Input.GetButtonDown("Jump")) //角色跳起和接触地面
+        if (Input.GetButtonDown("Jump") && isGrounded) //角色跳起和接触地面
         {
             myRigidbody.velocity = new Vector3(myRigidbody.velocity.x, jumpSpeed, 0f);
 
@@ -90,12 +107,12 @@ public class PlayerController : MonoBehaviour
         if (other.tag == "jumpMachine")
         {
 
-            jumpSpeed = 20.0f;
+            jumpSpeed = 10.0f;
 
         }
         else
         {
-            jumpSpeed = 5.0f;
+            jumpSpeed = 6.0f;
         }
 
 
@@ -104,29 +121,31 @@ public class PlayerController : MonoBehaviour
 
             larger = true;
 
-            //UpdCountDown();
+           
 
+        }
+
+        if (other.tag == "KillPlane")
+        {
+
+            gameObject.SetActive(false);
+            GameOverScreen.SetActive(true);
 
 
         }
+        else
+        {
+            GameOverScreen.SetActive(false);
+        }
+
+
+
 
 
     }
 
-    //private void UpdCountDown()
-    //{
-    //    if (timeLeft > 0)
-    //    {
-    //        timeLeft -= Time.deltaTime;
 
-
-    //    }
-    //    else
-    //    {
-    //        larger = false;
-    //    }
-    //}
-
+  
 
 
 

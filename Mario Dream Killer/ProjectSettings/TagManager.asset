@@ -11,6 +11,9 @@ TagManager:
   - boom
   - wall
   - mushroom
+  - ground
+  - KillPlane
+  - mega-rock
   layers:
   - Default
   - TransparentFX
@@ -20,8 +23,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ground
+  - Player
   - 
   - 
   - 

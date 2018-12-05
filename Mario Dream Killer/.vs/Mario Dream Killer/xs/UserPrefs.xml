@@ -1,8 +1,14 @@
 ﻿<Properties StartupConfiguration="{394CCAF7-6EBC-6E0D-E2A0-AA8388813C1B}|">
   <MonoDevelop.Ide.ItemProperties.Mario_220Dream_220Killer PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameOver.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerController.cs" Line="107" Column="30" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="28" Column="5" />
+      <File FileName="Assets/Scripts/LevelManager.cs" Line="77" Column="13" />
+      <File FileName="Assets/Scripts/Coins.cs" Line="33" Column="49" />
+      <File FileName="Assets/Scripts/Scores.cs" Line="33" Column="8" />
+      <File FileName="Assets/Scripts/DestoryBox.cs" Line="66" Column="13" />
+      <File FileName="Assets/Scripts/HurtPlayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameOver.cs" Line="26" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

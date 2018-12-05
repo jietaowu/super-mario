@@ -11,6 +11,10 @@ public class LevelManager : MonoBehaviour {
 
     public Text coinText;
 
+    public Text scoreText;
+
+    public int scoreCount;
+
     public int healthCount;
 
     public int maxHealth;
@@ -27,7 +31,7 @@ public class LevelManager : MonoBehaviour {
     public Sprite heartHalf;
     public Sprite heartEmpty;
 
-
+    public GameObject GameOverScreen;
 
 
 
@@ -37,6 +41,8 @@ public class LevelManager : MonoBehaviour {
         thePlayer = FindObjectOfType<PlayerController>(); //find the player script
 
         healthCount = maxHealth;
+
+
     }
 
     // Update is called once per frame
@@ -50,7 +56,16 @@ public class LevelManager : MonoBehaviour {
     {
         coinCount = coinCount + coinsToAdd;
 
-        coinText.text = "Coins " + coinCount;
+        coinText.text = "Gem " + coinCount;
+
+    }
+
+
+    public void AddScores(int scoreValue)
+    {
+        scoreCount = scoreCount + scoreValue;
+
+        scoreText.text = "Scores: " + scoreCount;
 
     }
 
@@ -58,6 +73,15 @@ public class LevelManager : MonoBehaviour {
     public void HurtPlayer(int damageToGive)
     {
         healthCount = healthCount - damageToGive;
+
+        if(healthCount <= 0)
+        {
+            GameOverScreen.SetActive(true);
+        }
+        else
+        {
+            GameOverScreen.SetActive(false);
+        }
 
         UpdateHeartMeter();  //update the heart
     }
